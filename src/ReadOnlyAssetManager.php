@@ -24,14 +24,11 @@ class ReadOnlyAssetManager extends AssetManager
     public function init()
     {
         if ($this->assetDevelopmentMode) {
-            $this->basePath = '@webroot/assets';
-            $this->baseUrl = '@web/assets';
-
             $this->forceCopy = true;
-        } else {
-            $this->basePath = Yii::getAlias($this->basePath);
-            $this->baseUrl = \rtrim(Yii::getAlias($this->baseUrl), '/');
         }
+
+        $this->basePath = Yii::getAlias($this->basePath);
+        $this->baseUrl = \rtrim(Yii::getAlias($this->baseUrl), '/');
     }
 
     /**
